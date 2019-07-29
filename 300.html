@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>微信公众号凑字数</title>
+</head>
+<body>
+<div style="font-size: 0.1px;letter-spacing:0.001px;line-height:0.001px;color: #ffffff;" id="result">参数n为个数</div>
+<script>
+    function getQueryVariable(variable) {
+        const query = window.location.search.substring(1);
+        const vars = query.split("&");
+        for (let i = 0; i < vars.length; i++) {
+            const pair = vars[i].split("=");
+            if (pair[0] === variable) {
+                return pair[1];
+            }
+        }
+        return (false);
+    }
+
+    n = getQueryVariable("n");
+
+    function randomCoding(n) {
+        //创建26个字母数组
+        const arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+        let idValue = '';
+        for (let i = 0; i < n; i++) {
+            idValue += arr[Math.floor(Math.random() * 26)] + ' ';
+        }
+        return idValue;
+    }
+    if (n===false){
+        n=300;
+    }
+    document.getElementById('result').innerText = randomCoding(n);
+
+</script>
+</body>
+</html>
